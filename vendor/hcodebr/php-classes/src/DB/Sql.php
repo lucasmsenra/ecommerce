@@ -2,11 +2,13 @@
 
 namespace Hcode\DB;
 
+use PDO;
+
 class Sql {
 
 	const HOSTNAME = "127.0.0.1";
-	const USERNAME = "root";
-	const PASSWORD = "";
+	const USERNAME = "lucas";
+	const PASSWORD = "13243546";
 	const DBNAME = "db_ecommerce";
 
 	private $conn;
@@ -14,7 +16,7 @@ class Sql {
 	public function __construct()
 	{
 
-		$this->conn = new \PDO(
+		$this->conn = new PDO(
 			"mysql:dbname=".Sql::DBNAME.";host=".Sql::HOSTNAME, 
 			Sql::USERNAME,
 			Sql::PASSWORD
@@ -60,10 +62,9 @@ class Sql {
 
 		$stmt->execute();
 
-		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 	}
 
 }
 
- ?>
